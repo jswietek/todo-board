@@ -2,6 +2,7 @@
 using Autofac.Integration.WebApi;
 using System.Reflection;
 using System.Web.Http;
+using TodoBoard.DataAccessLayer;
 
 namespace TodoBoard {
 	public class WebApiApplication : System.Web.HttpApplication {
@@ -12,10 +13,22 @@ namespace TodoBoard {
 
 		void SetDependencyInjectionResolver(HttpConfiguration config) {
 			var builder = new ContainerBuilder();
+
 			builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+			builder.RegisterWebApiFilterProvider(config);
+
+			builder.Register(c => new UnitOfWorkActionFilter())
+				.AsWebApiActionFilterFor<ApiController>()
+				.InstancePerRequest();
+
+			RegisterDependencies(builder);
 
 			var container = builder.Build();
 			config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+		}
+
+		void RegisterDependencies(ContainerBuilder builder) {
+			builder.RegisterType<DevUnitOfWork>().As<IUnitOfWork>();
 		}
 	}
 }

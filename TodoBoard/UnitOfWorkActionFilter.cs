@@ -1,18 +1,22 @@
-﻿using System.Net.Http;
+﻿using Autofac.Integration.WebApi;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using TodoBoard.DataAccessLayer;
 
 namespace TodoBoard {
-	public class UnitOfWorkActionFilter : ActionFilterAttribute {
+	public class UnitOfWorkActionFilter : IAutofacActionFilter {
 		public IUnitOfWork UnitOfWork { get; set; }
 
-		public override void OnActionExecuting(HttpActionContext actionContext) {
+		public Task OnActionExecutingAsync(HttpActionContext actionContext, CancellationToken cancellationToken) {
 			UnitOfWork = actionContext.Request.GetDependencyScope().GetService(typeof(IUnitOfWork)) as IUnitOfWork;
 			UnitOfWork?.BeginTransaction();
+			return Task.FromResult(0);
 		}
 
-		public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext) {
+		public Task OnActionExecutedAsync(HttpActionExecutedContext actionExecutedContext, CancellationToken cancellationToken) {
 			UnitOfWork = actionExecutedContext.Request.GetDependencyScope().GetService(typeof(IUnitOfWork)) as IUnitOfWork;
 			if (actionExecutedContext.Exception == null) {
 				UnitOfWork.Commit();
@@ -20,6 +24,7 @@ namespace TodoBoard {
 			else {
 				UnitOfWork.Rollback();
 			}
+			return Task.FromResult(0);
 		}
 	}
 }
