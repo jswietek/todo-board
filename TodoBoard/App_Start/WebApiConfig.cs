@@ -1,12 +1,9 @@
 ﻿using System.Net.Http.Formatting;
 using System.Web.Http;
 
-namespace TodoBoard
-{
-	public static class WebApiConfig
-	{
-		public static void Register(HttpConfiguration config)
-		{
+namespace TodoBoard {
+	public static class WebApiConfig {
+		public static void Register(HttpConfiguration config) {
 			// Web API configuration and services
 
 			// Web API routes
@@ -20,6 +17,8 @@ namespace TodoBoard
 
 			config.Formatters.Clear();
 			config.Formatters.Add(new JsonMediaTypeFormatter());
+
+			config.Filters.Add(new UnitOfWorkActionFilter());
 		}
 	}
 }
