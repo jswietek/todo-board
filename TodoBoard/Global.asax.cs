@@ -3,6 +3,7 @@ using Autofac.Integration.WebApi;
 using System.Reflection;
 using System.Web.Http;
 using TodoBoard.DataAccessLayer;
+using TodoBoard.DataAccessLayer.Repositories;
 
 namespace TodoBoard {
 	public class WebApiApplication : System.Web.HttpApplication {
@@ -29,6 +30,8 @@ namespace TodoBoard {
 
 		void RegisterDependencies(ContainerBuilder builder) {
 			builder.RegisterType<DevUnitOfWork>().As<IUnitOfWork>();
+			builder.RegisterType<BoardSqliteRepository>().As<IBoardRepository>();
+			builder.RegisterType<TodoItemsSqliteRepository>().As<ITodoItemRepository>();
 		}
 	}
 }
