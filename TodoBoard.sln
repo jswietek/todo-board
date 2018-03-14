@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoBoard", "TodoBoard\TodoBoard.csproj", "{9DAE7C43-0781-4914-B7BC-0623C3313C5D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoBoard.API", "TodoBoard\TodoBoard.API.csproj", "{9DAE7C43-0781-4914-B7BC-0623C3313C5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
