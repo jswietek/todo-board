@@ -112,10 +112,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="DataAccessLayer\Repositories\BoardSqliteRepository.cs" />
     <Compile Include="DataAccessLayer\Repositories\IBoardRepository.cs" />
     <Compile Include="DataAccessLayer\Repositories\ITodoItemRepository.cs" />
     <Compile Include="DataAccessLayer\IUnitOfWork.cs" />
     <Compile Include="DataAccessLayer\DevUnitOfWork.cs" />
+    <Compile Include="DataAccessLayer\Repositories\TodoItemsSqliteRepository.cs" />
     <Compile Include="Entities\Board.cs" />
     <Compile Include="Entities\TodoItem.cs" />
     <Compile Include="Global.asax.cs">
