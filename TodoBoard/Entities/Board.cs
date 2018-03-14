@@ -5,11 +5,15 @@ using System.Web;
 
 namespace TodoBoard.Entities
 {
-	public class TodoItem
+	public class Board
 	{
+		public Board()
+		{
+			TodoItems = new List<TodoItem>();
+		}
+
 		public int Id { get; set; }
 		public string Name { get; set; }
-		public string Description { get; set; }
-		public int BoardId { get; set; }
+		public IList<TodoItem> TodoItems { get; set; }
 	}
 }
