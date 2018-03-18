@@ -4,12 +4,13 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using System.IO;
+using System.Web.Hosting;
 using TodoBoard.Entities;
 
 namespace TodoBoard.DataAccessLayer {
 	public class DevUnitOfWork : IUnitOfWork {
 		static ISessionFactory _sessionFactory;
-		static readonly string DB_FILE_NAME = "development.db";
+		static readonly string DB_FILE_NAME = HostingEnvironment.MapPath(@"~\development.db");
 		ITransaction _transaction;
 
 		public DevUnitOfWork() {
@@ -38,7 +39,7 @@ namespace TodoBoard.DataAccessLayer {
 
 		public ISession Session {
 			get; private set;
-		}
+		}s
 
 		public void BeginTransaction() {
 			_transaction = Session.BeginTransaction();

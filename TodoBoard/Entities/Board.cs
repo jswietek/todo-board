@@ -7,21 +7,21 @@ namespace TodoBoard.Entities {
 			TodoItems = new List<TodoItem>();
 		}
 
-		public int Id { get; set; }
-		public string Name { get; set; }
-		public IList<TodoItem> TodoItems { get; set; }
+		public virtual int Id { get; set; }
+		public virtual string Name { get; set; }
+		public virtual IList<TodoItem> TodoItems { get; set; }
 
-		public void AddItem(TodoItem item) {
+		public virtual void AddItem(TodoItem item) {
 			item.Board = this;
 			TodoItems.Add(item);
 		}
 
-		public void RemoveItem(int id) {
+		public virtual void RemoveItem(int id) {
 			var removed = TodoItems.FirstOrDefault(item => item.Id == id);
 			TodoItems.Remove(removed);
 		}
 
-		public void RemoveItem(TodoItem item) {
+		public virtual void RemoveItem(TodoItem item) {
 			TodoItems.Remove(item);
 		}
 	}

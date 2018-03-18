@@ -1,8 +1,8 @@
 ﻿namespace TodoBoard.Entities {
 	public class TodoItem {
-		public int Id { get; set; }
-		public string Name { get; set; }
-		public string Description { get; set; }
-		public Board Board { get; set; }
+		public virtual int Id { get; set; }
+		public virtual string Name { get; set; }
+		public virtual string Description { get; set; }
+		public virtual Board Board { get; set; }
 	}
 }
