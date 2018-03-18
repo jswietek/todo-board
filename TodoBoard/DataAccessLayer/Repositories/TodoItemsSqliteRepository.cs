@@ -9,16 +9,16 @@ namespace TodoBoard.DataAccessLayer.Repositories {
 			_unitOfWork = unitOfWork;
 		}
 
-		public void Add(TodoItem item) {
-			_unitOfWork.Session.Save(item);
+		public int Add(TodoItem item) {
+			return ((TodoItem)_unitOfWork.Session.Save(item)).Id;
 		}
 
 		public void Remove(TodoItem item) {
 			_unitOfWork.Session.Delete(item);
 		}
 
-		public void Update(TodoItem item) {
-			_unitOfWork.Session.Update(item);
+		public void AddOrUpdate(TodoItem item) {
+			_unitOfWork.Session.SaveOrUpdate(item);
 		}
 
 		public IList<TodoItem> GetByBoard(Board board) {

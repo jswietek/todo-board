@@ -3,8 +3,8 @@ using TodoBoard.Entities;
 
 namespace TodoBoard.DataAccessLayer.Repositories {
 	public interface ITodoItemRepository {
-		void Add(TodoItem item);
-		void Update(TodoItem item);
+		int Add(TodoItem item);
+		void AddOrUpdate(TodoItem item);
 		void Remove(TodoItem item);
 		TodoItem GetById(int id);
 		IList<TodoItem> GetByBoard(Board board);

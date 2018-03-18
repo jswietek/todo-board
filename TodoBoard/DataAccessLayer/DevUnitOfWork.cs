@@ -29,6 +29,7 @@ namespace TodoBoard.DataAccessLayer {
 		}
 
 		static void BuildSchema(Configuration config) {
+
 			if (File.Exists(DB_FILE_NAME)) {
 				File.Delete(DB_FILE_NAME);
 			}
@@ -39,7 +40,7 @@ namespace TodoBoard.DataAccessLayer {
 
 		public ISession Session {
 			get; private set;
-		}s
+		}
 
 		public void BeginTransaction() {
 			_transaction = Session.BeginTransaction();
