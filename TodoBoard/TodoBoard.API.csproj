@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BoardsController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="DataAccessLayer\Repositories\BoardSqliteRepository.cs" />
     <Compile Include="DataAccessLayer\Repositories\IBoardRepository.cs" />

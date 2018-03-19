@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TodoBoard.Entities;
 
 namespace TodoBoard.DataAccessLayer.Repositories {
@@ -9,6 +10,10 @@ namespace TodoBoard.DataAccessLayer.Repositories {
 			_unitOfWork = unitOfWork;
 		}
 
+		public IEnumerable<TodoItem> GetAll() {
+			return _unitOfWork.Session.Query<TodoItem>().ToList();
+		}
+
 		public int Add(TodoItem item) {
 			return ((TodoItem)_unitOfWork.Session.Save(item)).Id;
 		}
@@ -17,8 +22,8 @@ namespace TodoBoard.DataAccessLayer.Repositories {
 			_unitOfWork.Session.Delete(item);
 		}
 
-		public void AddOrUpdate(TodoItem item) {
-			_unitOfWork.Session.SaveOrUpdate(item);
+		public void Update(TodoItem item) {
+			_unitOfWork.Session.Update(item);
 		}
 
 		public IList<TodoItem> GetByBoard(Board board) {

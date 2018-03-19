@@ -14,25 +14,20 @@ namespace TodoBoard.Controllers {
 		}
 
 		[HttpGet]
-		public IEnumerable<Board> Get() {
-			return _boardRepo.GetAll();
+		public IEnumerable<TodoItem> Get() {
+			return _todoItemsRepo.GetAll();
 		}
 
-		// POST: api/Items
-		public void Post([FromBody]TodoItem item) {
-			_todoItemsRepo.Add(item);
-			var board = _boardRepo.GetById(item.Board.Id);
-			board.AddItem(item);
-			_boardRepo.Update(board);
+		[HttpPost]
+		public int CreateItem([FromBody]TodoItem item) {
+			var result = _todoItemsRepo.Add(item);
+			_boardRepo.GetById(item.Board.Id).AddItem(item);
+			return result;
 		}
 
-		// PUT: api/Items/5
-		public void Put(int id, [FromBody]TodoItem item) {
-			_todoItemsRepo.AddOrUpdate(item);
-		}
-
-		// DELETE: api/Items/5
-		public void Delete(int id) {
+		[HttpPut]
+		public void UpdateItem(int id, [FromBody]TodoItem item) {
+			_todoItemsRepo.Update(item);
 		}
 	}
 }
