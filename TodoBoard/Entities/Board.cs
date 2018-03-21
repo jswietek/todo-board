@@ -12,7 +12,7 @@ namespace TodoBoard.Entities {
 		public virtual IList<TodoItem> TodoItems { get; set; }
 
 		public virtual void AddItem(TodoItem item) {
-			item.Board = this;
+			item.BoardId = Id;
 			TodoItems.Add(item);
 		}
 

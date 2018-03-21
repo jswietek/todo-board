@@ -3,7 +3,6 @@ using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
-using System.Collections.Generic;
 using System.IO;
 using System.Web.Hosting;
 using TodoBoard.Entities;
@@ -27,25 +26,28 @@ namespace TodoBoard.DataAccessLayer {
 				.ExposeConfiguration(BuildSchema)
 				.BuildSessionFactory();
 
+			var board = new Board() {
+				Name = "test_board1",
+			};
 
 			using (var session = _sessionFactory.OpenSession()) {
 				using (var transaction = session.BeginTransaction()) {
-					var board = new Board() {
-						Name = "test_board1",
-						TodoItems = new List<TodoItem>() {
-							new TodoItem() {
-								Name = "test_todo_item1",
-								Description = "test_todo_description"
-							}
-						}
-					};
-
 					session.Save(board);
 					transaction.Commit();
 				}
 			}
 
+			using (var session = _sessionFactory.OpenSession()) {
+				using (var transaction = session.BeginTransaction()) {
+					board.AddItem(new TodoItem() {
+						Name = "test_item_1",
+						Description = "test_item_description_1"
+					});
 
+					session.Save(board);
+					transaction.Commit();
+				}
+			}
 		}
 
 		static void BuildSchema(Configuration config) {

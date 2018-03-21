@@ -21,7 +21,7 @@ namespace TodoBoard.Controllers {
 		[HttpPost]
 		public int CreateItem([FromBody]TodoItem item) {
 			var result = _todoItemsRepo.Add(item);
-			_boardRepo.GetById(item.Board.Id).AddItem(item);
+			_boardRepo.GetById(item.BoardId).AddItem(item);
 			return result;
 		}
 

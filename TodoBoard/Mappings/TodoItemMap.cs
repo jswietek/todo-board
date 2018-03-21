@@ -7,7 +7,7 @@ namespace TodoBoard.Mappings {
 			Id(item => item.Id);
 			Map(item => item.Name);
 			Map(item => item.Description);
-			References(item => item.Board);
+			Map(item => item.BoardId);
 		}
 	}
 }

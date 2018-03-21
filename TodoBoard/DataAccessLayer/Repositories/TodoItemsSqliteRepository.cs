@@ -27,7 +27,7 @@ namespace TodoBoard.DataAccessLayer.Repositories {
 		}
 
 		public IList<TodoItem> GetByBoard(Board board) {
-			return _unitOfWork.Session.QueryOver<TodoItem>().Where(item => item.Board.Id == board.Id).List();
+			return _unitOfWork.Session.QueryOver<TodoItem>().Where(item => item.BoardId == board.Id).List();
 		}
 
 		public TodoItem GetById(int id) {
