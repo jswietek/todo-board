@@ -16,7 +16,10 @@ namespace TodoBoard {
 			);
 
 			config.Formatters.Clear();
-			config.Formatters.Add(new JsonMediaTypeFormatter());
+			var jsonFormatter = new JsonMediaTypeFormatter();
+			jsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
+			config.Formatters.Add(jsonFormatter);
 		}
 	}
 }
