@@ -3,6 +3,7 @@ using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
+using System.Collections.Generic;
 using System.IO;
 using System.Web.Hosting;
 using TodoBoard.Entities;
@@ -25,6 +26,25 @@ namespace TodoBoard.DataAccessLayer {
 				.Mappings(m => m.FluentMappings.AddFromAssemblyOf<Board>())
 				.ExposeConfiguration(BuildSchema)
 				.BuildSessionFactory();
+
+
+			using (var session = _sessionFactory.OpenSession()) {
+				using (var transaction = session.BeginTransaction()) {
+					var board = new Board() {
+						Name = "test_board1",
+						TodoItems = new List<TodoItem>() {
+							new TodoItem() {
+								Name = "test_todo_item1",
+								Description = "test_todo_description"
+							}
+						}
+					};
+
+					session.Save(board);
+					transaction.Commit();
+				}
+			}
+
 
 		}
 
@@ -58,7 +78,7 @@ namespace TodoBoard.DataAccessLayer {
 				throw;
 			}
 			finally {
-				Session.Dispose();
+				Session.Close();
 			}
 		}
 
@@ -68,7 +88,7 @@ namespace TodoBoard.DataAccessLayer {
 					_transaction.Rollback();
 			}
 			finally {
-				Session.Dispose();
+				Session.Close();
 			}
 		}
 	}

@@ -17,7 +17,6 @@ namespace TodoBoard {
 		}
 
 		public Task OnActionExecutedAsync(HttpActionExecutedContext actionExecutedContext, CancellationToken cancellationToken) {
-			UnitOfWork = actionExecutedContext.Request.GetDependencyScope().GetService(typeof(IUnitOfWork)) as IUnitOfWork;
 			if (actionExecutedContext.Exception == null) {
 				UnitOfWork.Commit();
 			}
