@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoBoard.API", "TodoBoard\TodoBoard.API.csproj", "{9DAE7C43-0781-4914-B7BC-0623C3313C5D}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "TodoBoard.Client", "TodoBoard.Client\TodoBoard.Client.njsproj", "{2634BECD-2606-49D5-B2EE-456278881999}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9DAE7C43-0781-4914-B7BC-0623C3313C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DAE7C43-0781-4914-B7BC-0623C3313C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DAE7C43-0781-4914-B7BC-0623C3313C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2634BECD-2606-49D5-B2EE-456278881999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2634BECD-2606-49D5-B2EE-456278881999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2634BECD-2606-49D5-B2EE-456278881999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2634BECD-2606-49D5-B2EE-456278881999}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
