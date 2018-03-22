@@ -39,7 +39,6 @@
     <Content Include="README.md" />
     <Content Include="src\App.css" />
     <Content Include="src\index.css" />
-    <Content Include="src\logo.svg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="public\" />
