@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Button } from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
+import BoardContainer from './components/board-container'
 import './App.css';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.boards = [
+            {
+                Name: "jedna"
+            },
+            {
+                Name: "druga"
+            }
+        ];
+    }
+
     render() {
         return (
             <Grid fluid>
@@ -12,7 +25,7 @@ class App extends Component {
                 <Row>
                     <Col sm={2}></Col>
                     <Col sm={8} className="text-center">
-                        COS
+                        <BoardContainer Boards={this.boards} />
                     </Col>
                     <Col sm={2}></Col>
                 </Row>
