@@ -10,8 +10,8 @@ namespace TodoBoard.DataAccessLayer.Repositories {
 			_unitOfWork = unitOfWork;
 		}
 
-		public int Add(Board item) {
-			return (int)_unitOfWork.Session.Save(item);
+		public Board Add(Board item) {
+			return (Board)_unitOfWork.Session.Save(item);
 		}
 
 		public Board GetById(int id) {
@@ -22,8 +22,9 @@ namespace TodoBoard.DataAccessLayer.Repositories {
 			return _unitOfWork.Session.Query<Board>().ToList();
 		}
 
-		public void Remove(Board item) {
-			_unitOfWork.Session.Delete(item);
+		public void Delete(int id) {
+			var board = GetById(id);
+			_unitOfWork.Session.Delete(board);
 		}
 
 		public void Update(Board item) {

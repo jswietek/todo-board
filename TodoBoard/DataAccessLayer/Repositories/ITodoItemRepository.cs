@@ -4,9 +4,9 @@ using TodoBoard.Entities;
 namespace TodoBoard.DataAccessLayer.Repositories {
 	public interface ITodoItemRepository {
 		IEnumerable<TodoItem> GetAll();
-		int Add(TodoItem item);
+		TodoItem Add(TodoItem item);
 		void Update(TodoItem item);
-		void Remove(TodoItem item);
+		void Delete(int item);
 		TodoItem GetById(int id);
 	}
 }

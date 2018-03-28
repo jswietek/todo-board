@@ -14,11 +14,12 @@ namespace TodoBoard.DataAccessLayer.Repositories {
 			return _unitOfWork.Session.Query<TodoItem>().ToList();
 		}
 
-		public int Add(TodoItem item) {
-			return ((TodoItem)_unitOfWork.Session.Save(item)).Id;
+		public TodoItem Add(TodoItem item) {
+			return (TodoItem)_unitOfWork.Session.Save(item);
 		}
 
-		public void Remove(TodoItem item) {
+		public void Delete(int id) {
+			var item = GetById(id);
 			_unitOfWork.Session.Delete(item);
 		}
 
