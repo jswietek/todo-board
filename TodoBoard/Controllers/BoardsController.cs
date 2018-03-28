@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using TodoBoard.DataAccessLayer.Repositories;
 using TodoBoard.Entities;
@@ -16,14 +18,30 @@ namespace TodoBoard.Controllers {
 			return _boardRepo.GetAll();
 		}
 
+		[HttpGet]
+		public Board GetById(int id) {
+			return _boardRepo.GetById(id);
+		}
+
 		[HttpPost]
-		public int AddBoard([FromBody] Board board) {
-			return _boardRepo.Add(board);
+		public HttpResponseMessage AddBoard([FromBody] Board board) {
+			board = _boardRepo.Add(board);
+			var response = Request.CreateResponse<Board>(HttpStatusCode.Created, board);
+			return response;
 		}
 
 		[HttpPut]
-		public void UpdateBoard([FromBody] Board board) {
+		public HttpResponseMessage UpdateBoard([FromBody] Board board) {
 			_boardRepo.Update(board);
+			var response = Request.CreateResponse(HttpStatusCode.OK);
+			return response;
+		}
+
+		[HttpDelete]
+		public HttpResponseMessage DeleteBoard(int id) {
+			_boardRepo.Delete(id);
+			var response = Request.CreateResponse(HttpStatusCode.OK);
+			return response;
 		}
 	}
 }
