@@ -25,7 +25,7 @@ class App extends Component {
                 <Row>
                     <Col sm={2}></Col>
                     <Col sm={8} className="text-center">
-                        <BoardContainer Boards={this.boards} />
+                        <BoardContainer boards={this.boards} />
                     </Col>
                     <Col sm={2}></Col>
                 </Row>

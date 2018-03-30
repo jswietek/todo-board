@@ -39,7 +39,7 @@ namespace TodoBoard.Controllers {
 
 		[HttpDelete]
 		public HttpResponseMessage DeleteBoard(int id) {
-			_todoItemsRepo.Delete(id);
+			_boardRepo.Delete(id);
 			var response = Request.CreateResponse(HttpStatusCode.OK);
 			return response;
 		}

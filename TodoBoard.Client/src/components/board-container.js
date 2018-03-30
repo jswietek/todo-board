@@ -1,24 +1,32 @@
 ﻿import React, { Component } from 'react';
-import { Grid, Row, Col, Button } from 'react-bootstrap'
-import Board from './board'
+import { Grid, Row, Col, Button } from 'react-bootstrap';
+import Board from './board';
 
-function BoardContainer(props) {
-    var boards = [];
-    for (var i = 0; i < props.Boards.length; i++) {
-        boards.push(
-            <Col xs={3}>
-                <Board data={props.Boards[i]} />
-            </Col>
+class BoardContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            boards: props.boards,
+        }
+    }
+
+    render() {
+        var boardElements = [];
+        for (var i = 0; i < this.state.boards.length; i++) {
+            boardElements.push(
+                <li xs={3}>
+                    <Board data={this.state.boards[i]} />
+                </li>
+            );
+        }
+
+        return (
+            <ul className="board-container">
+                {boardElements}
+            </ul>
         );
     }
 
-    return (
-        <Grid fluid>
-            <Row>
-                {boards}
-            </Row>
-        </Grid>
-    );
 }
 
 export default BoardContainer;
