@@ -8,3 +8,11 @@ body {
     visibility: hidden;
     height: 25vh;
 }
+
+.board-container {
+    list-style-type: none;
+}
+
+.board-container > li {
+    float: left;
+}
