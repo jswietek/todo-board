@@ -11,4 +11,4 @@ export const moveItem = (id, newBoardId) => ({ type: MOVE_ITEM, id, newBoardId }
 //BOARDS
 export const addBoard = board => ({ type: ADD_BOARD, board });
 export const deleteBoard = id => ({ type: DELETE_BOARD, id });
-export const changeBoardName = (id, newBoardName) => ({ type: CHANGE_BOARD_NAME, id, newBoardName })
+export const changeBoardName = (id, newName) => ({ type: CHANGE_BOARD_NAME, id, newName })

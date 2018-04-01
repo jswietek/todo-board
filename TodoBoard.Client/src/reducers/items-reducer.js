@@ -1,9 +1,5 @@
 ﻿import { ADD_ITEM, DELETE_ITEM, CHANGE_ITEM_NAME, CHANGE_ITEM_DESC, MOVE_ITEM } from './action-types';
-
-const initialState = {
-    items: [],
-    boards: []
-}
+import { initialState } from './app-reducer'
 
 function itemsReducer(state = initialState, action) {
     switch (action) {
@@ -57,3 +53,5 @@ function itemsReducer(state = initialState, action) {
             return state;
     }
 }
+
+export default itemsReducer;
