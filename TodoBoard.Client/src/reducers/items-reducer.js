@@ -1,6 +1,6 @@
 ﻿import { ADD_ITEM, DELETE_ITEM, CHANGE_ITEM_NAME, CHANGE_ITEM_DESC, MOVE_ITEM } from '../actions/action-types';
 
-function ItemsReducer(state = {}, action) {
+function itemsReducer(state = {}, action) {
     switch (action) {
         case ADD_ITEM:
             return Object.assign({}, state, {
@@ -53,4 +53,4 @@ function ItemsReducer(state = {}, action) {
     }
 }
 
-export default ItemsReducer;
+export default itemsReducer;

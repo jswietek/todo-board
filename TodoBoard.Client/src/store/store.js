@@ -1,4 +1,4 @@
-﻿import { AppReducer } from '../reducers/app-reducer';
+﻿import { appReducer } from '../reducers/app-reducer';
 import { createStore } from 'redux';
 
 const initialState = {
@@ -13,5 +13,5 @@ const initialState = {
     ]
 }
 
-const Store = createStore(AppReducer, initialState);
-export default Store;
+const store = createStore(appReducer, initialState);
+export default store;

@@ -1,8 +1,8 @@
 ﻿import { combineReducers } from 'redux';
-import BoardsReducer from './boards-reducer';
-import ItemsReducer from './items-reducer';
+import boardsReducer from './boards-reducer';
+import itemsReducer from './items-reducer';
 
-export const AppReducer = combineReducers({
-    items: ItemsReducer,
-    boards: BoardsReducer
+export const appReducer = combineReducers({
+    items: itemsReducer,
+    boards: boardsReducer
 });

@@ -1,6 +1,6 @@
 ﻿import { ADD_BOARD, DELETE_BOARD, CHANGE_BOARD_NAME } from '../actions/action-types';
 
-function BoardsReducer(state = {}, action) {
+function boardsReducer(state = {}, action) {
     switch (action) {
         case ADD_BOARD:
             return Object.assign({}, state, {
@@ -32,4 +32,4 @@ function BoardsReducer(state = {}, action) {
     }
 }
 
-export default BoardsReducer;
+export default boardsReducer;
