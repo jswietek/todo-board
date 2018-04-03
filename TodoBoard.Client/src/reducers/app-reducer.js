@@ -1,14 +1,8 @@
 ﻿import { combineReducers } from 'redux';
-import { itemsReducer, boardsReducer } from '.';
+import BoardsReducer from './boards-reducer';
+import ItemsReducer from './items-reducer';
 
-export const initialState = {
-    items: [],
-    boards: []
-}
-
-const appReducer = combineReducers({
-    itemsReducer,
-    boardsReducer
-})
-
-export default appReducer;
+export const AppReducer = combineReducers({
+    items: ItemsReducer,
+    boards: BoardsReducer
+});

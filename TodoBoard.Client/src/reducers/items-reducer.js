@@ -1,7 +1,6 @@
-﻿import { ADD_ITEM, DELETE_ITEM, CHANGE_ITEM_NAME, CHANGE_ITEM_DESC, MOVE_ITEM } from './action-types';
-import { initialState } from './app-reducer'
+﻿import { ADD_ITEM, DELETE_ITEM, CHANGE_ITEM_NAME, CHANGE_ITEM_DESC, MOVE_ITEM } from '../actions/action-types';
 
-function itemsReducer(state = initialState, action) {
+function ItemsReducer(state = {}, action) {
     switch (action) {
         case ADD_ITEM:
             return Object.assign({}, state, {
@@ -22,7 +21,7 @@ function itemsReducer(state = initialState, action) {
             return Object.assign({}, state, {
                 items: state.items.map(item => {
                     if (item.id === action.id) {
-                        return Onject.assign({}, item, {
+                        return Object.assign({}, item, {
                             name: action.newName,
                         })
                     }
@@ -32,7 +31,7 @@ function itemsReducer(state = initialState, action) {
             return Object.assign({}, state, {
                 items: state.items.map(item => {
                     if (item.id === action.id) {
-                        return Onject.assign({}, item, {
+                        return Object.assign({}, item, {
                             descrption: action.newDescrption,
                         })
                     }
@@ -54,4 +53,4 @@ function itemsReducer(state = initialState, action) {
     }
 }
 
-export default itemsReducer;
+export default ItemsReducer;

@@ -1,7 +1,6 @@
-﻿import { ADD_BOARD, DELETE_BOARD, CHANGE_BOARD_NAME } from './action-types';
-import { initialState } from './app-reducer'
+﻿import { ADD_BOARD, DELETE_BOARD, CHANGE_BOARD_NAME } from '../actions/action-types';
 
-function boardsReducer(state = initialState, action) {
+function BoardsReducer(state = {}, action) {
     switch (action) {
         case ADD_BOARD:
             return Object.assign({}, state, {
@@ -22,15 +21,15 @@ function boardsReducer(state = initialState, action) {
             return Object.assign({}, state, {
                 boards: state.boards.map(board => {
                     if (board.id === action.id) {
-                        return Onject.assign({}, board, {
+                        return Object.assign({}, board, {
                             name: action.newName,
                         })
                     }
                 })
             });
         default:
-            return initialState;
+            return state;
     }
 }
 
-export default boardsReducer;
+export default BoardsReducer;

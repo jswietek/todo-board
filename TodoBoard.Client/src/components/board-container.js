@@ -5,7 +5,7 @@ class BoardContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            boards: props.boards,
+            boards: this.props.boards,
         }
     }
 
