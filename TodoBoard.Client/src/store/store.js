@@ -1,5 +1,7 @@
-﻿import { appReducer } from '../reducers/app-reducer';
-import { createStore } from 'redux';
+﻿import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import { appReducer } from '../reducers/app-reducer';
+import { createStore, applyMiddleware } from 'redux';
 
 const initialState = {
     items: [],
@@ -15,5 +17,11 @@ const initialState = {
     ]
 }
 
-const store = createStore(appReducer, initialState);
+const loggerMiddleware = createLogger();
+
+const store = createStore(appReducer, initialState, applyMiddleware(
+    thunkMiddleware,
+    loggerMiddleware
+));
+
 export default store;
