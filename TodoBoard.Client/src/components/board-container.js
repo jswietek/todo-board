@@ -10,14 +10,11 @@ class BoardContainer extends Component {
     }
 
     render() {
-        var boardElements = [];
-        for (var i = 0; i < this.state.boards.length; i++) {
-            boardElements.push(
-                <li>
-                    <Board data={this.state.boards[i]} />
-                </li>
-            );
-        }
+        var boardElements = this.state.boards.map((board) =>
+            <li key={board.Id}>
+                <Board data={board} />
+            </li>
+        );
 
         return (
             <ul className="board-container">

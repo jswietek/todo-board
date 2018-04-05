@@ -25,6 +25,7 @@ function itemsReducer(state = {}, action) {
                             name: action.newName,
                         })
                     }
+                    return item;
                 })
             });
         case CHANGE_ITEM_DESC:
@@ -35,6 +36,7 @@ function itemsReducer(state = {}, action) {
                             descrption: action.newDescrption,
                         })
                     }
+                    return item;
                 })
             });
         case MOVE_ITEM:
@@ -45,6 +47,7 @@ function itemsReducer(state = {}, action) {
                             boardId: action.newBoardId
                         })
                     }
+                    return item;
                 })
             });
 

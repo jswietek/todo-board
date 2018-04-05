@@ -5,9 +5,11 @@ const initialState = {
     items: [],
     boards: [
         {
+            Id: 1,
             Name: "jedna"
         },
         {
+            Id: 2,
             Name: "druga"
         }
     ]

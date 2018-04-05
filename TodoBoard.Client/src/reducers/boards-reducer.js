@@ -25,6 +25,7 @@ function boardsReducer(state = {}, action) {
                             name: action.newName,
                         })
                     }
+                    return board;
                 })
             });
         default:
