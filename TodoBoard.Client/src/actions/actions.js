@@ -1,4 +1,6 @@
-﻿//ITEMS
+﻿import fetch from 'cross-fetch'
+
+//ITEMS
 export const ADD_ITEM = "ADD_ITEM";
 export const addItem = item => ({ type: ADD_ITEM, item });
 
@@ -18,7 +20,7 @@ export const REQUEST_ITEMS = "REQUEST_ITEMS";
 export const requestItems = () => ({ type: REQUEST_ITEMS });
 
 export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
-export const receiveItems = (json) => ({ type: RECEIVE_ITEMS, items: json, receivedAt: Date.now  })
+export const receiveItems = (json) => ({ type: RECEIVE_ITEMS, items: json, receivedAt: Date.now })
 
 //BOARDS
 export const ADD_BOARD = "ADD_BOARD";
@@ -35,3 +37,18 @@ export const requestBoards = () => ({ type: REQUEST_BOARDS });
 
 export const RECEIVE_BOARDS = "RECEIVE_BOARDS";
 export const receiveBoards = (json) => ({ type: RECEIVE_BOARDS, boards: json, receivedAt: Date.now })
+
+export function fetchPosts() {
+    return function (dispatch) {
+        dispatch(requestBoards());
+
+        return fetch('http://loaclhost:15351/api/boards')
+            .then(
+                response => response.json(),
+                error => console.log('ERROR!!!!', error),
+            )
+            .then(
+                json => dispatch(receiveBoards(json))
+            );
+    }
+}
