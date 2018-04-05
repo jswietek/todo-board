@@ -1,4 +1,4 @@
-﻿import { ADD_ITEM, DELETE_ITEM, CHANGE_ITEM_NAME, CHANGE_ITEM_DESC, MOVE_ITEM } from '../actions/action-types';
+﻿import { ADD_ITEM, DELETE_ITEM, CHANGE_ITEM_NAME, CHANGE_ITEM_DESC, MOVE_ITEM } from '../actions/actions';
 
 function itemsReducer(state = {}, action) {
     switch (action) {

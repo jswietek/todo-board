@@ -49,9 +49,6 @@
     <Folder Include="src\reducers\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\actions\action-types.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="src\actions\actions.js">
       <SubType>Code</SubType>
     </Compile>

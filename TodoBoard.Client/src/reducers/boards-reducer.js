@@ -1,4 +1,4 @@
-﻿import { ADD_BOARD, DELETE_BOARD, CHANGE_BOARD_NAME } from '../actions/action-types';
+﻿import { ADD_BOARD, DELETE_BOARD, CHANGE_BOARD_NAME } from '../actions/actions';
 
 function boardsReducer(state = {}, action) {
     switch (action) {
